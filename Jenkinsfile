@@ -30,7 +30,7 @@ pipeline {
             }
         }
 
-        stage('Deploy & Publish artifacts to Nexus') {
+        stage('Deploy & Publish artifacts to Nexus') {      # Give the maven release and maven snapshots in pom.xml file && Configure in jenkins (managed files) => this is connectivity to nexus and jenkins
             steps {
                 withMaven(globalMavenSettingsConfig: 'maven', jdk: 'JDK17', maven: 'maven3', mavenSettingsConfig: '', traceability: true) {
                 sh 'mvn deploy -DskipTests=true'
